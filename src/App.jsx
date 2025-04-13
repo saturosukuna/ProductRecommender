@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function App() {
-  const [query, setQuery] = useState("smartphone under 20k for gaming(realme)");
+  const [query, setQuery] = useState("poco gaming phone above 30k");
   const [preference, setPreference] = useState("");
   const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [recommendation, setRecommendation] = useState("");
   const [loading, setLoading] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
   const maxPagesToScrape = 3;
@@ -16,6 +16,11 @@ function App() {
   useEffect(() => {
     document.body.className = darkMode ? "bg-gray-950" : "bg-white";
   }, [darkMode]);
+
+  useEffect(() => {
+    fetchAllProducts(query);
+  }, []);
+  
 
   useEffect(() => {
     const start = (currentPage - 1) * productsPerPage;
@@ -224,7 +229,7 @@ function App() {
               ? "bg-blue-600 text-white hover:bg-blue-700"
               : "bg-blue-500 text-white hover:bg-blue-600"
           }`}
-          onClick={() => fetchAllProducts(query)}
+          onClick={() => {fetchAllProducts(query);setRecommendation("");}}
         >
          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M15.25 0a8.25 8.25 0 0 0-6.18 13.72L1 22.88l1.12 1l8.05-9.12A8.251 8.251 0 1 0 15.25.01zm0 15a6.75 6.75 0 1 1 0-13.5a6.75 6.75 0 0 1 0 13.5"/></svg>
           Search
