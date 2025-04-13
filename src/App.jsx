@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function App() {
-  const [query, setQuery] = useState("smartphone");
+  const [query, setQuery] = useState("smartphone under 20k for gaming(realme)");
   const [preference, setPreference] = useState("");
   const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
