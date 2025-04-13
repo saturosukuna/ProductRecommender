@@ -16,10 +16,6 @@ function App() {
   useEffect(() => {
     document.body.className = darkMode ? "bg-gray-950" : "bg-white";
   }, [darkMode]);
-
-  useEffect(() => {
-    fetchAllProducts(query);
-  }, []);
   
 
   useEffect(() => {
