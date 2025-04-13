@@ -221,7 +221,7 @@ function App() {
           placeholder="Search for smartphone..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && fetchAllProducts(query)}
+          onKeyDown={(e) => e.key === "Enter" && fetchAllProducts(query) && setRecommendation("")}
         />
         <span
           className={`font-semibold px-6 py-3 rounded shadow transition-colors ${
